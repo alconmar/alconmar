@@ -1,1 +1,719 @@
-dsadasd
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de Álvaro Contreras Martínez - Senior Software Engineer & IT Cloud Architect." />
+  <title>Álvaro Contreras Martínez | Senior Software Engineer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0f19;
+      --surface: #1e293b;
+      --surface-strong: #111827;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.14);
+      --radius: 24px;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+      --max-width: 1180px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.1), transparent 30%), var(--bg);
+      color: var(--text);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      line-height: 1.7;
+      font-size: 1rem;
+      background: var(--bg);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .page {
+      width: min(100%, 100vw);
+    }
+
+    .layout {
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 15, 25, 0.9);
+      border-bottom: 1px solid rgba(51, 65, 85, 0.55);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      width: min(100%, var(--max-width));
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .brand .role {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-toggle {
+      display: none;
+      padding: 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .nav-toggle:hover,
+    .nav-toggle:focus-visible {
+      background: rgba(56, 189, 248, 0.1);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+      background: rgba(56, 189, 248, 0.12);
+      outline: none;
+    }
+
+    .hero {
+      margin-top: 2rem;
+      display: grid;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248,0.08);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-title {
+      max-width: 11ch;
+    }
+
+    .hero-subtitle {
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 54rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.85rem;
+      align-items: center;
+      padding: 1rem 1.15rem;
+      border-radius: 18px;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      min-width: 200px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .contact-card:hover,
+    .contact-card:focus-within {
+      border-color: rgba(56, 189, 248, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .contact-icon {
+      width: 2.3rem;
+      height: 2.3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.16);
+      color: var(--accent);
+    }
+
+    .contact-card span {
+      display: block;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .contact-card small {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    main {
+      margin-top: 2.5rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    section {
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .about p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+
+    .pill-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .pill-group {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .pill-group strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+      font-size: 0.95rem;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--text);
+      border: 1px solid rgba(56, 189, 248, 0.18);
+      font-size: 0.92rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .pill:hover {
+      transform: translateY(-1px);
+      background: rgba(56, 189, 248, 0.18);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      gap: 1rem;
+      padding: 1.6rem;
+      border-radius: 22px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(56, 189, 248, 0.12);
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .timeline-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .impact-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .impact-list li {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+    }
+
+    .impact-list li::before {
+      content: '';
+      margin-top: 0.55rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+    }
+
+    .impact-list li span {
+      color: var(--muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .project-card {
+      display: grid;
+      gap: 1rem;
+      padding: 1.6rem;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(83, 100, 143, 0.28);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-card:hover,
+    .project-card:focus-within {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.35);
+      outline: none;
+    }
+
+    .project-card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(14, 39, 64, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.12);
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    footer {
+      padding: 2rem 1.5rem 3rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    .stack-grid {
+      display: grid;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .hero-contact {
+      display: grid;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .hero-contact a {
+      outline: none;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .layout {
+        padding: 1.75rem 1rem 3rem;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-links {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        padding: 1rem 0.5rem 0;
+        border-top: 1px solid rgba(100, 116, 139, 0.18);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+      }
+
+      .hero-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-contact {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <span>Álvaro Contreras Martínez</span>
+          <span class="role">Senior Software Engineer & IT Cloud Architect</span>
+        </div>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-navigation">
+          <span>Menú</span>
+        </button>
+
+        <nav aria-label="Navegación principal">
+          <div class="nav-links" id="primary-navigation">
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#stack">Stack</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#proyectos">Proyectos</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <span class="eyebrow">Arquitectura técnica & Cloud</span>
+          <h1 id="hero-title" class="hero-title">Construyendo software escalable, seguro y con foco empresarial.</h1>
+          <p class="hero-subtitle">Diseño y desarrollo de infraestructuras cloud robustas, backend escalable y arquitecturas seguras por diseño.</p>
+          <div class="hero-actions hero-contact">
+            <a class="contact-card" href="mailto:example@correo.com" aria-label="Enviar correo a Álvaro">
+              <span class="contact-icon" aria-hidden="true">✉️</span>
+              <span>
+                <strong>Correo</strong>
+                <small>example@correo.com</small>
+              </span>
+            </a>
+
+            <a class="contact-card" href="https://www.linkedin.com" target="_blank" rel="noreferrer noopener" aria-label="Ver perfil de LinkedIn">
+              <span class="contact-icon" aria-hidden="true">in</span>
+              <span>
+                <strong>LinkedIn</strong>
+                <small>Conexiones profesionales</small>
+              </span>
+            </a>
+
+            <a class="contact-card" href="https://github.com" target="_blank" rel="noreferrer noopener" aria-label="Ver perfil de GitHub">
+              <span class="contact-icon" aria-hidden="true">GH</span>
+              <span>
+                <strong>GitHub</strong>
+                <small>Repositorios y proyectos</small>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre-mi" class="about" aria-labelledby="sobre-mi-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="sobre-mi-title">Sobre mí</h2>
+            <p>Perfil técnico con una perspectiva estratégica para el desarrollo de soluciones empresariales.</p>
+          </div>
+        </div>
+        <p>Ingeniero de Software y profesional de las TIC especializado en la arquitectura de aplicaciones, infraestructura cloud y seguridad informática. Amplia experiencia liderando el ciclo completo de desarrollo en el ecosistema .NET y entornos Azure, optimizando sistemas complejos y garantizando el cumplimiento normativo (como el Esquema Nacional de Seguridad - ENS). Perfil enfocado en la automatización de procesos, despliegues eficientes (CI/CD) y la gestión estratégica de proveedores tecnológicos para transformar retos organizativos en plataformas estables y de alta disponibilidad.</p>
+      </section>
+
+      <section id="stack" aria-labelledby="stack-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="stack-title">Stack tecnológico</h2>
+            <p>Capacidades organizadas por dominio funcional para soluciones de TI integrales.</p>
+          </div>
+        </div>
+        <div class="pill-grid stack-grid">
+          <div class="pill-group">
+            <strong>Backend & Arquitectura</strong>
+            <div class="pills">
+              <span class="pill">.NET</span>
+              <span class="pill">C#</span>
+              <span class="pill">REST APIs</span>
+              <span class="pill">Arquitectura Limpia</span>
+              <span class="pill">Scrum</span>
+            </div>
+          </div>
+
+          <div class="pill-group">
+            <strong>Cloud & DevOps</strong>
+            <div class="pills">
+              <span class="pill">Microsoft Azure</span>
+              <span class="pill">Docker</span>
+              <span class="pill">Jenkins</span>
+              <span class="pill">GitLab</span>
+              <span class="pill">CI/CD Pipelines</span>
+              <span class="pill">Linux</span>
+            </div>
+          </div>
+
+          <div class="pill-group">
+            <strong>Frontend & Herramientas</strong>
+            <div class="pills">
+              <span class="pill">Angular</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">Git</span>
+              <span class="pill">Power Platform</span>
+            </div>
+          </div>
+
+          <div class="pill-group">
+            <strong>Cumplimiento y Gestión</strong>
+            <div class="pills">
+              <span class="pill">Esquema Nacional de Seguridad (ENS)</span>
+              <span class="pill">Gestión de Proveedores TIC</span>
+              <span class="pill">Automatización de Procesos</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiencia" aria-labelledby="experiencia-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="experiencia-title">Experiencia destacada</h2>
+            <p>Trayectoria reciente liderando la transformación digital en un entorno público y tecnológico.</p>
+          </div>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div>
+              <h3>Fundación Española para la Ciencia y la Tecnología (FECYT)</h3>
+              <div class="timeline-meta">
+                <span>Analista Programador TIC / Scrum Master</span>
+                <span>2020 - Presente</span>
+              </div>
+            </div>
+            <ul class="impact-list">
+              <li><span>Liderazgo en el desarrollo y transformación digital de plataformas críticas de gestión de ayudas públicas y divulgación científica.</span></li>
+              <li><span>Diseño y migración de arquitecturas legacy hacia entornos cloud en Microsoft Azure, implementando contenedores con Docker y automatización mediante pipelines de integración y despliegue continuo (CI/CD) en Jenkins y GitLab.</span></li>
+              <li><span>Coordinación técnica de proveedores tecnológicos externos, asegurando entregables de calidad en tiempo y forma.</span></li>
+              <li><span>Implementación, auditoría y cumplimiento de políticas de ciberseguridad bajo el marco del Esquema Nacional de Seguridad (ENS).</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="proyectos" aria-labelledby="proyectos-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="proyectos-title">Proyectos destacados</h2>
+            <p>Casos de éxito enfocados en rendimiento, disponibilidad y seguridad dentro de entornos críticos.</p>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card" tabindex="0">
+            <h3>Plataforma de Gestión de Ayudas Públicas</h3>
+            <p>Reingeniería de backend en .NET y frontend en Angular con metodología Scrum, optimizando el rendimiento de las consultas y la concurrencia de usuarios.</p>
+            <div class="project-tags">
+              <span class="project-tag">.NET</span>
+              <span class="project-tag">Angular</span>
+              <span class="project-tag">SQL Server</span>
+            </div>
+          </article>
+
+          <article class="project-card" tabindex="0">
+            <h3>Migración de Infraestructura Core a Azure</h3>
+            <p>Containerización de servicios mediante Docker y despliegue distribuido en la nube de Azure, mejorando la disponibilidad y reduciendo costes operativos.</p>
+            <div class="project-tags">
+              <span class="project-tag">Azure</span>
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">CI/CD</span>
+            </div>
+          </article>
+
+          <article class="project-card" tabindex="0">
+            <h3>Auditoría e Implementación ENS</h3>
+            <p>Adecuación del entorno de desarrollo y sistemas internos para cumplir estrictamente con los estándares y controles de seguridad del Esquema Nacional de Seguridad.</p>
+            <div class="project-tags">
+              <span class="project-tag">Ciberseguridad</span>
+              <span class="project-tag">ENS</span>
+              <span class="project-tag">Gobierno IT</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Un enfoque serio, accesible y sostenible para convertir desafíos TI en plataformas corporativas de alto rendimiento.</p>
+    </footer>
+  </div>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('primary-navigation');
+
+    navToggle?.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+  </script>
+</body>
+</html>
